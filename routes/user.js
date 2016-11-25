@@ -49,8 +49,23 @@ router.get("/posts", function(req, res, next) {
 });
 
 router.get("/pagesliked", function(req, res, next) {
-    // var at = req.user.token;
-    // var url = "https://graph.facebook.com/me"
-})
+    var at = req.user.token;
+    var c = "context";
+    var url = "https://graph.facebook.com/me";
+    request.get({
+        url:url,
+        qs: {
+            access_token: at,
+            fields: c
+        },
+        json: true
+    }, function(err, resp, data) {
+        if(err) {
+            throw new Error(err);
+        } else {
+            res.json(data);
+        }
+    });
+});
 
 module.exports = router;

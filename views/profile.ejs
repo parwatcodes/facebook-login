@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:20px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+		<!-- FACEBOOK INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+					<p>
+						<strong>MongoDB ID</strong>: <%= user._id %><br>
+                        <strong>FaceBook ID</strong>: <%=user.fb_Id %><br>
+                        <strong>Name</strong>: <%= user.username %><br>
+                        <strong>Email</strong>: <%= user.email %><br>
+						<strong>Access Token</strong>: <%= user.token %><br><br>
+                        <a href ="/images" class="btn btn-default btn-sm">Images</a>
+                        <a href ="/posts" class="btn btn-default btn-sm">Posts</a>
+                        <a href ="/pagesliked" class="btn btn-default btn-sm">Pages User Likes</a>
+					</p>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+</body>
+</html>

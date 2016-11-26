@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<title>FaceBook Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:20px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-primary"><span class="fa fa-facebook"></span> Albums</h3>
+					<p>
+                        <% for(i=0; i < albums.data.length; i++) { %> 
+                            <strong>Album Name</strong>: <%= albums.data[i].name %><br>
+                            Pic nos : <%= albums.data[i].count %><br>
+                            Link: <a href="/albumphotos/<%= albums.data[i].id %>"><%= albums.data[i].id %></a><br>
+                            <strong>                           </strong><br>
+                        <% } %> 
+					</p>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+</body>
+</html>

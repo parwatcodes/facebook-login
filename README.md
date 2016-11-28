@@ -4,11 +4,11 @@
 
     ````
     npm install
+  
+    nodemon app.js || node app.js
     
     ````
-    nodemon app.js || node app.js
 
-
-email me @ parwatkunwar08@gmail.com
+    parwatkunwar08@gmail.com
 
 

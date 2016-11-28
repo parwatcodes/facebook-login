@@ -37,10 +37,14 @@ router.get('/images', function (req, res, next) {
 
 router.get("/posts", function (req, res, next) {
     var accesstoken = req.user.token;
+    var f = "message,id,created_time,name,link";
     var url = "https://graph.facebook.com/me/posts";
     request.get({
         url: url,
-        qs: { access_token: accesstoken },
+        qs: {
+            access_token: accesstoken,
+            fields: f
+        },
         json: true
     }, function (err, resp, data) {
         if (err) {
@@ -71,22 +75,24 @@ router.get("/pagesliked", function (req, res, next) {
     });
 });
 
-router.get("/albumphotos/:id", function(req, res, next) {
+
+
+router.get("/albumphotos/:id", function (req, res, next) {
     var at = req.user.token;
-    var c = "photos{link}";
-    var url = "https://graph.facebook.com/"+ req.params.id;
+    var c = "photos{link,images}";
+    var url = "https://graph.facebook.com/" + req.params.id;
     request.get({
         url: url,
         qs: {
             access_token: at,
             fields: c
-        },
+        },  
         json: true
-    }, function(err, resp, data) {
-        if(err) {
+    }, function (err, resp, data) {
+        if (err) {
             throw new Error(err);
         } else {
-            res.json(data);
+            res.render('images', {data: data});
         }
     });
 });

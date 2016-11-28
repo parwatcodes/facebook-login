@@ -9,26 +9,23 @@
 	</style>
 </head>
 <body>
+
+
 <div class="container">
 
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="well">
 				<h3 class="text-primary"><span class="fa fa-facebook"></span> Albums</h3>
-					<p>
-                        <% for(i=0; i < albums.data.length; i++) { %> 
-                            <strong>Album Name</strong>: <%= albums.data[i].name %><br>
-                            Pic nos : <%= albums.data[i].count %><br>
-                            Link : <a href="/albumphotos/<%= albums.data[i].id %>"><%= albums.data[i].id %></a><br>
+                            <% var p = 0%>
+                            <% for(i=0; i < data.photos.data.length; i++) { %> 
+							<%= ++p %>: <img src="<%= data.photos.data[i].images[0].source %>" height="200" width="200"/><br>
                             <strong>                           </strong><br>
                         <% } %> 
-					</p>
 			</div>
 		</div>
 
 	</div>
-
-
 
 </div>
 </body>
